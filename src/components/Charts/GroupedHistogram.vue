@@ -18,6 +18,14 @@ import GeneralChart from '@/components/Charts/GeneralChart.vue'
 })
 export default class GroupedHistogram extends Vue {
   private option = {
+    title: {
+      text: 'TESTHHHHHHHHHHHHHHHHHHHHHHHHH',
+      show: true,
+      link: 'https://www.baidu.com/',
+      textStyle: {
+        color: 'red'
+      }
+    },
     legend: {},
     tooltip: {},
     dataset: {

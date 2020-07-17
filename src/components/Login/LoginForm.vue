@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2020-06-24 19:07:52
- * @LastEditTime: 2020-06-27 10:35:01
- * @LastEditors: Please set LastEditors
- * @Description: 登录表单
- * @FilePath: /vue-ts/src/components/Login/LoginForm.vue
--->
 <template>
   <div class="login_form_wrapper">
     <h3 class="login_title">{{ title }}</h3>
