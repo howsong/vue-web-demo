@@ -9,8 +9,13 @@ export interface IsingleConfig {
   weight: number
   fieldGroup: string
   fieldLimit: Ilimit
-  options?: any[]
+  options?: IoptionItem[]
   entityCode?: null | string
+}
+
+export interface IoptionItem {
+  value: string
+  label: string
 }
 
 // 字数限制类型

@@ -30,6 +30,11 @@ const routes: Array<RouteConfig> = [
         path: PATHS.ECHARTS,
         name: 'Echarts',
         component: _import_('Echarts')
+      },
+      {
+        path: PATHS.ELEMENT,
+        name: 'ElementDemo',
+        component: _import_('ElementDemo')
       }
     ]
   }

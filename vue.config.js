@@ -1,9 +1,5 @@
 //当前时间为了防止打包缓存不刷新，所以给每个js文件都加一个时间戳
 const Timestamp = new Date().getTime()
-const path = require('path')
-function resolve (dir) {
-  return path.join(__dirname,dir)
-}
 module.exports = {
   // devServer: {
   //   proxy: {
@@ -19,9 +15,7 @@ module.exports = {
       args[0].title = 'Vue Demos'
       return args
     })
-    config.module
-      .rule('svg')
-      .uses.clear()
+    config.module.rule('svg').uses.clear()
     config.module //针对svg文件添加svg-sprite-loader规则
       .rule('svg1')
       .test(/\.svg$/)

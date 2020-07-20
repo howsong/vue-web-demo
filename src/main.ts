@@ -7,7 +7,8 @@ import '@/assets/styles/theme/element-variables.scss'
 import '@/assets/styles/index.less'
 import SvgIcon from '@/components/Common/SvgIcon/SvgIcon.vue'
 const req = require.context('@/assets/icons', false, /\.svg$/)
-const requireAll = (requireContent: any) => requireContent.keys().map(requireContent)
+const requireAll = (requireContent: __WebpackModuleApi.RequireContext) =>
+  requireContent.keys().map(requireContent)
 requireAll(req)
 
 Vue.config.productionTip = false
