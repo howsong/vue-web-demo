@@ -2,8 +2,8 @@
   <div>
     <svg-icon svgName="edit" className="edit_icon" />
     <NoticeMusic />
-    <infinite-sroll-list />
     <next-tick-demo />
+    <observe-element />
   </div>
 </template>
 
@@ -11,15 +11,15 @@
 import { Vue, Component } from 'vue-property-decorator'
 import SingleEditList from '@/components/Common/SingleEdit/SingleEditList.vue'
 import NoticeMusic from '@/components/Common/Notice/NoticeMusic.vue'
-import InfiniteSrollList from '@/components/ElementDemos/InfiniteSrollList.vue'
 import NextTickDemo from '@/components/Common/NextTickDemo.vue'
+import ObserveElement from '@/components/Common/Notice/ObserveElement.vue'
 
 @Component({
   components: {
     SingleEditList,
     NoticeMusic,
-    InfiniteSrollList,
-    NextTickDemo
+    NextTickDemo,
+    ObserveElement
   }
 })
 export default class Home extends Vue {

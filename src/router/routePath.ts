@@ -3,7 +3,10 @@ enum PATHS {
   LOGIN = '/login',
   HOME = '/home',
   ECHARTS = '/echarts',
-  ELEMENT = '/elementDemos'
+  ELEMENT = '/elementDemos',
+  SCENARIO = '/scenatio',
+  SCENARIO_LIST = 'list',
+  SCENARIO_EXAMPLE = 'example'
 }
 
 export const topNavMenu = [
@@ -17,7 +20,8 @@ export const topNavMenu = [
       { title: 'TEST1', path: '1' },
       { title: 'TEST2', path: '2' }
     ]
-  }
+  },
+  { title: '业务场景', path: PATHS.SCENARIO }
 ]
 
 export default PATHS

@@ -25,10 +25,6 @@ export default class NoticeMusic extends Vue {
   private src = '../../../assets/music/demo.mp3'
   private file?: any
 
-  private created() {
-    console.log('son created')
-  }
-
   private mounted() {
     this.noticeAudio = document.getElementById('notice') as HTMLAudioElement
     this.file = document.getElementById('file') as HTMLInputElement
@@ -48,10 +44,8 @@ export default class NoticeMusic extends Vue {
   }
 
   private onInputFileChange() {
-    console.dir(this.file, URL)
     if (this.file) {
       const url = URL.createObjectURL(this.file.files[0])
-      console.log(url)
       this.src = url
     }
   }

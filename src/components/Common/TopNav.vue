@@ -23,7 +23,9 @@
         <el-menu-item v-else :key="index" :index="item.path">{{ item.title }}</el-menu-item>
       </template>
     </el-menu>
-    <div class="personal_wrapper"></div>
+    <div class="personal_wrapper">
+      <NoticeMusic />
+    </div>
   </div>
 </template>
 
@@ -31,12 +33,17 @@
 import { Vue, Component } from 'vue-property-decorator'
 import { Menu, MenuItem, Submenu } from 'element-ui'
 import { topNavMenu } from '@/router/routePath'
+import NoticeMusic from '@/components/Common/Notice/NoticeMusic.vue'
 
 Vue.use(Menu)
 Vue.use(Submenu)
 Vue.use(MenuItem)
 
-@Component
+@Component({
+  components: {
+    NoticeMusic
+  }
+})
 export default class TopNav extends Vue {
   get activeIndex() {
     return this.$route.path
