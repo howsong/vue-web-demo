@@ -1,9 +1,9 @@
 <template>
   <div>
     <svg-icon svgName="edit" className="edit_icon" />
-    <NoticeMusic />
-    <next-tick-demo />
-    <observe-element />
+    <!-- <NoticeMusic /> -->
+    <!-- <next-tick-demo /> -->
+    <!-- <observe-element /> -->
   </div>
 </template>
 

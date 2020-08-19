@@ -6,7 +6,7 @@
 !-->
 <template>
   <el-card class="scenario_card_box">
-    <div slot="header" class="card_title">
+    <div class="card_title">
       <span> {{ title }} </span>
       <el-button type="text" @click="handleTravel">前往查看</el-button>
     </div>
@@ -46,6 +46,13 @@ export default class ScenarioCard extends Vue {
   height: 160px;
   .card_describe {
     font-size: 12px;
+  }
+  .card_title {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 </style>

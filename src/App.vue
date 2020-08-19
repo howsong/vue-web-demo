@@ -1,17 +1,20 @@
 <template>
-  <router-view />
+  <div>
+    <router-view />
+    <UploaderWindow />
+  </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import { Button } from 'element-ui'
-import FormDemo from '@/components/Form/FormDemo.vue'
+import UploaderWindow from '@/components/Scenario/SimpleUploader/UploaderWindow.vue'
 
 Vue.use(Button)
 
 @Component({
   components: {
-    FormDemo
+    UploaderWindow
   }
 })
 export default class App extends Vue {}

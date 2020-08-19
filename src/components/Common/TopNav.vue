@@ -24,7 +24,7 @@
       </template>
     </el-menu>
     <div class="personal_wrapper">
-      <NoticeMusic />
+      <!-- <NoticeMusic /> -->
     </div>
   </div>
 </template>

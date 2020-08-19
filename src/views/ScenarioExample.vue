@@ -10,7 +10,7 @@
     <el-button type="text" @click="handleReturn"> <i class="el-icon-back" />返回 </el-button>
     <!-- 样例展示区域 -->
     <div>
-      <SimpleUpload v-if="id === LINK_IDS.S001 || !id" />
+      <UploaderExamples v-if="id === LINK_IDS.S001 || !id" />
     </div>
   </div>
 </template>
@@ -18,14 +18,14 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import { Button, Icon } from 'element-ui'
-import SimpleUpload from '@/components/Scenario/SimpleUpload.vue'
 import { LINK_IDS } from '@/components/Scenario/configs'
+import UploaderExamples from '@/components/Scenario/SimpleUploader/UploaderExamples.vue'
 
 Vue.use(Button)
 Vue.use(Icon)
 @Component({
   components: {
-    SimpleUpload
+    UploaderExamples
   }
 })
 export default class ScenarioExample extends Vue {
