@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .list-wrap{
+            position: relative;
+            overflow-y: scroll;
+            width: 200px;
+            margin: 100px auto;
+            box-sizing: border-box;
+            border: solid 1px red;
+            box-sizing: border-box;
+        }
+        .list{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .list li{
+            height: 30px;
+            border: solid 1px blue;
+            line-height: 30px;
+            box-sizing: border-box;
+        }
+</style>
+</head>
+<body>
+<ul id="app">
+    <div class="list-wrap" ref="listWrap" @scroll="scrollListener">
+        <div class="scroll-bar" ref="scrollBar"></div>
+        <ul class="list" ref="list">
+            <li v-for="val in showList">{{val}}</li>
+        </ul>
+        <span></span>
+    </div>
+</ul>
+<script src="./vue.js"></script>
+<script>
+  const data = [
+    {id:0,name:'dhausdh1'},
+    {id:1,name:'dhausdh1'},
+    {id:2,name:'dhausdh2'},
+    {id:3,name:'add3'},
+    {id:4,name:'add5d'},
+    {id:5,name:'addd1001'},
+    {id:6,name:'addd33'},
+    {id:7,name:'addd23'},
+    {id:8,name:'addd10'},
+    {id:9,name:'addd0999'},
+  ]
+  const getListPromise = ()=>{
+    return new Promise((resolve)=>{
+      const timer = setTimeout(()=>{
+        resolve(data)
+      }, 1000)
+    })
+  }
+  const STATUS_CODES = {
+    LOADING: 'LOADING',
+    FAILD: 'FAILD'
+  }
+  const statusText = {
+    [STATUS_CODES.LOADING]: '数据加载中',
+    [STATUS_CODES.FAILD]: '加载失败'
+  }
+    new Vue({
+        el: '#app',
+        data(){
+            return {
+                list: [],//超长的显示数据
+                itemHeight: 30,//每一列的高度
+                showNum: 10,//显示几条数据
+                start: 0,//滚动过程显示的开始索引
+                end: 10,//滚动过程显示的结束索引
+                status: '' // 列表在家状态
+            }
+        },
+        computed: {
+            //显示的数组，用计算属性计算
+            showList(){
+                return this.list.slice(this.start, this.end);
+            },
+            listHeight(){
+              return this.list.length  * this.itemHeight + 'px'
+            }
+        },
+        mounted(){
+            //构造一个超长列表
+            for (let i = 0; i < 100; i++) {
+                this.list.push('列表' + i)
+            }
+            //计算滚动容器高度
+            this.$refs.listWrap.style.height = this.itemHeight * this.showNum + 'px';
+            //计算总的数据需要的高度，构造滚动条高度
+            this.$refs.scrollBar.style.height = this.itemHeight * this.list.length + 'px';
+        },
+        methods: {
+            getList(){
+              getListPromise().then(data=>{
+                this.list = [...this.list,...data]
+              })
+            },
+            scrollListener(){
+                //获取滚动高度
+                let scrollTop = this.$refs.listWrap.scrollTop;
+                const viewH = this.itemHeight * this.showNum // 可视区列表高度
+                const scrollH = this.itemHeight * this.list.length // 滚动容器总高度
+                console.log(scrollTop, viewH, scrollH)
+                console.log(scrollH - (scrollTop + viewH))
+                if(scrollH - (scrollTop + viewH) < 20){
+                  console.log('触发列表请求')
+                }
+                //开始的数组索引
+                this.start = Math.floor(scrollTop / this.itemHeight);
+                //结束索引
+                this.end = this.start + this.showNum;
+                //绝对定位对相对定位的偏移量
+                this.$refs.list.style.top = this.start * this.itemHeight + 'px';
+            }
+        }
+    })
+</script>
+</body>
+</html>

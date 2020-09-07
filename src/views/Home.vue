@@ -1,25 +1,16 @@
 <template>
   <div>
-    <svg-icon svgName="edit" className="edit_icon" />
-    <!-- <NoticeMusic /> -->
-    <!-- <next-tick-demo /> -->
-    <!-- <observe-element /> -->
+    <infinite-scroller key-field="id" />
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import SingleEditList from '@/components/Common/SingleEdit/SingleEditList.vue'
-import NoticeMusic from '@/components/Common/Notice/NoticeMusic.vue'
-import NextTickDemo from '@/components/Common/NextTickDemo.vue'
-import ObserveElement from '@/components/Common/Notice/ObserveElement.vue'
+import InfiniteScroller from '@/components/Common/InfiniteScroller/InfiniteScroller.vue'
 
 @Component({
   components: {
-    SingleEditList,
-    NoticeMusic,
-    NextTickDemo,
-    ObserveElement
+    InfiniteScroller
   }
 })
 export default class Home extends Vue {
