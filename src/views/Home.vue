@@ -1,16 +1,18 @@
 <template>
   <div>
-    <infinite-scroller key-field="id" />
+    <Demo />
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import InfiniteScroller from '@/components/Common/InfiniteScroller/InfiniteScroller.vue'
+import Demo from '@/components/Common/UniversalList/Demo.vue'
+// import InfiniteScroller from '@/components/Common/InfiniteScroller/InfiniteScroller.vue'
 
 @Component({
   components: {
-    InfiniteScroller
+    Demo
+    // InfiniteScroller
   }
 })
 export default class Home extends Vue {
