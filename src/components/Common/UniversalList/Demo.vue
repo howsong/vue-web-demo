@@ -9,7 +9,9 @@
     <UniveralList :getList="getList">
       <template #default="{isLoading,listData,isError,updateListConditions}">
         <div v-loading="isLoading">
-          <div v-if="isError">请求失败<span @click="updateListConditions">重新请求</span></div>
+          <div v-if="isError">
+            请求失败<span class="again_button" @click="updateListConditions">重新请求</span>
+          </div>
           <div v-else>{{ listData }}</div>
         </div>
       </template>
@@ -29,11 +31,9 @@ Vue.use(Loading)
 })
 export default class Demo extends Vue {
   private getList(conditions = {}) {
-    console.log(conditions)
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const r = Math.random()
-        console.log(r)
         if (r > 0.6) {
           reject()
         } else {
@@ -45,4 +45,12 @@ export default class Demo extends Vue {
 }
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.again_button {
+  margin-left: 10px;
+  cursor: pointer;
+  &:hover {
+    color: blue;
+  }
+}
+</style>

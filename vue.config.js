@@ -12,7 +12,7 @@ module.exports = {
   // },
   chainWebpack: config => {
     config.plugin('html').tap(args => {
-      args[0].title = 'Vue Demos'
+      args[0].title = 'vue demo'
       return args
     })
     config.module.rule('svg').uses.clear()

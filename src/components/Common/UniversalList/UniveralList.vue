@@ -54,6 +54,7 @@ export default class UniveralList extends Vue {
           if (typeof this.dealRes === 'function') {
             this.dealRes(res)
           } else {
+            this.isError = false
             this.listData = res
           }
         })

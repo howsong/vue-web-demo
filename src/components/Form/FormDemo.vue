@@ -34,7 +34,7 @@ export default class FormDemo extends Vue {
   }
 
   private submit() {
-    console.log(this.formData, '提交数据')
+    //console.log(this.formData, '提交数据')
   }
 
   private created() {

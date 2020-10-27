@@ -7,21 +7,14 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
 import { FormItem, Input } from 'element-ui'
-import { IFormData } from '@/components/Form/dataConfig'
 
 Vue.use(FormItem)
 Vue.use(Input)
 
 @Component
 export default class InputFormItem extends Vue {
-  @Prop(Object) formData!: IFormData
+  @Prop(Object) formData!: any
   @Prop(String) prop!: string
-
-  private created() {
-    console.log(this.$props, '$props---------------')
-    console.log(this.$attrs, '$attrs---------------')
-    console.log(this.$listeners, '$listeners---------------')
-  }
 }
 </script>
 

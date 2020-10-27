@@ -1,23 +1,26 @@
 <template>
-  <div>
-    <router-view />
-    <UploaderWindow />
-  </div>
+  <router-view />
 </template>
 
-<script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
-import { Button } from 'element-ui'
-import UploaderWindow from '@/components/Scenario/SimpleUploader/UploaderWindow.vue'
-
-Vue.use(Button)
-
-@Component({
-  components: {
-    UploaderWindow
+<script>
+export default {
+  mounted() {
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'hidden') {
+        document.title = '死鬼，又去哪鬼混了！'
+      }
+      if (document.visibilityState === 'visible') {
+        document.title = '亲，欢迎回家！'
+        const timer = setTimeout(() => {
+          document.title = 'vue-demo'
+          clearTimeout(timer)
+        }, 500)
+      }
+    })
+  },
+  beforeDestroy() {
+    //document.removeEventListener('visibilitychange')
   }
-})
-export default class App extends Vue {}
+}
 </script>
-
-<style lang="less"></style>
+<style scoped></style>

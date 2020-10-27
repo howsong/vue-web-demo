@@ -24,12 +24,12 @@ const data: DemoListItem[] = [
 ]
 
 export const getListPromise = (params: any = {}): any => {
-  const { page, size } =params
+  const { page, size } = params
   return new Promise(resolve => {
     const timer = setTimeout(() => {
-      const start = (page-1)*size
+      const start = (page - 1) * size
       const end = page * size
-      console.log(data.slice(start, end))
+      //console.log(data.slice(start, end))
       const listData = {
         total: Math.ceil(data.length / size),
         page,

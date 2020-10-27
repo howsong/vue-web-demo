@@ -63,7 +63,6 @@ export default class InfiniteScroller extends Vue {
   }
   // 可视区域高度
   get viewHeight() {
-    console.log(this.itemHeight)
     return this.size * this.itemHeight
   }
   private created() {
@@ -89,10 +88,7 @@ export default class InfiniteScroller extends Vue {
     const scrollTop = (this.$refs.listWrap as any).scrollTop
     const viewH = this.itemHeight * this.size // 可视区列表高度
     const scrollH = this.itemHeight * this.list.length // 滚动容器总高度
-    console.log(scrollTop, viewH, scrollH)
-    console.log(scrollH - (scrollTop + viewH))
     if (scrollH - (scrollTop + viewH) < 20 && !this.isLoading && this.isMore) {
-      console.log('触发列表请求')
       this.updateConditions({ page: this.conditions.page + 1 })
     }
     //开始的数组索引

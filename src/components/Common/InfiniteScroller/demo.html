@@ -107,10 +107,10 @@
                 let scrollTop = this.$refs.listWrap.scrollTop;
                 const viewH = this.itemHeight * this.showNum // 可视区列表高度
                 const scrollH = this.itemHeight * this.list.length // 滚动容器总高度
-                console.log(scrollTop, viewH, scrollH)
-                console.log(scrollH - (scrollTop + viewH))
+                //console.log(scrollTop, viewH, scrollH)
+                //console.log(scrollH - (scrollTop + viewH))
                 if(scrollH - (scrollTop + viewH) < 20){
-                  console.log('触发列表请求')
+                  //console.log('触发列表请求')
                 }
                 //开始的数组索引
                 this.start = Math.floor(scrollTop / this.itemHeight);
