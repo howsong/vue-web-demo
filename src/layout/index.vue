@@ -7,7 +7,7 @@
 <template>
   <div class="layout_wrapper">
     <!-- 右侧导航菜单 -->
-    <side-bar />
+    <sidebar />
     <div class="main_container">
       <router-view />
     </div>
@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
-import Sidebar from './Sidebar.vue'
+import Sidebar from './sidebar/index.vue'
 @Component({
   components: {
     Sidebar

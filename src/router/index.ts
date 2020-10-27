@@ -23,6 +23,7 @@ export interface RouteItemConfig {
   redirect?: string
   children?: RouteItemConfig[]
   meta?: Meta
+  jumpPath?: string
 }
 
 /**
@@ -61,9 +62,11 @@ export const constantRoutes: RouteItemConfig[] = [
     path: '/',
     component: Layout,
     redirect: '/dashboard',
+    name: '主页',
     children: [
       {
         path: 'dashboard',
+        jumpPath: '/dashboard',
         component: () => import('@/views/dashboard/index.vue'),
         name: 'Dashboard',
         meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
@@ -80,7 +83,7 @@ export const asyncRoutes = [
     path: '/error',
     component: Layout,
     redirect: 'noRedirect',
-    name: 'ErrorPages',
+    name: '错误页面',
     meta: {
       title: 'Error Pages',
       icon: '404'
@@ -88,12 +91,14 @@ export const asyncRoutes = [
     children: [
       {
         path: '401',
+        jumpPath: '/error/401',
         component: () => import('@/views/error-page/401.vue'),
         name: 'Page401',
         meta: { title: '401', noCache: true }
       },
       {
         path: '404',
+        jumpPath: '/error/404',
         component: () => import('@/views/error-page/404.vue'),
         name: 'Page404',
         meta: { title: '404', noCache: true }

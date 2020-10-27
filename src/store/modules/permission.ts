@@ -1,3 +1,6 @@
+/**
+ * 这里写权限控制逻辑、根据权限设置动态路由
+ */
 import { asyncRoutes, constantRoutes } from '@/router'
 
 interface State {
